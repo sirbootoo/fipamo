@@ -1,0 +1,28 @@
+{
+  "name": "@sirbootoo/fipamo",
+  "version": "1.0.0",
+  "description": "This is an encryption library written in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirbootoo/fipamo.git"
+  },
+  "keywords": [
+    "encryption",
+    "decrypting",
+    "encode",
+    "decode",
+    "security",
+    "javascript",
+    "node"
+  ],
+  "author": "Sirbootoo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sirbootoo/fipamo/issues"
+  },
+  "homepage": "https://github.com/sirbootoo/fipamo#readme"
+}
