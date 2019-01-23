@@ -1,6 +1,6 @@
 
 # Fipamo
-This is 
+This is an encryption library built in javascript with two inputs.
 
 # Using the library.
 
@@ -30,16 +30,19 @@ require('fipamo')(key, arrKey)
 
 ```js
 const fipamo = require('fipamo');
-const fip = fipamo('jsjss', ['a', 'A', 'zz']);
+const fip = new fipamo('Secret key', ['array', 'of', 'keys.', 'Please', 'this', 'is', 'compulsory']);
 
-document.write(fip.crypt('llslsdkdncdkdk'));
+document.write(fip.crypt('llslsdkdncdkdk')); // Sample string to encrypt --> result = ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ
 document.write('\n');
-document.write(fip.encodingURI('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ'));
+document.write(fip.encodingURI('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ')); // %D3%B3%D3%B3%D3%AC%D3%B3%D3%AC%D3%BB%D3%B4%D3%BB%D3%B1%D3%BC%D3%BB%D3%B4%D3%BB%D3%B4 
 document.write('\n');
-document.write(fip.decodingURI(fip.encodingURI('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ')));
+document.write(fip.decodingURI(fip.encodingURI('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ'))); // ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ
 document.write('\n');
 document.write(' -----> ');
-document.write(fip.crypt('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ'));
+document.write(fip.crypt('ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ')); // llslsdkdncdkdk
+
+// You can also put the Secret Key and Array of keys in the function directly
+document.write(fip.crypt('llslsdkdncdkdk', 'Secret key', ['array', 'of', 'keys.', 'Please', 'this', 'is', 'compulsory'])); // Sample string to encrypt --> result = ӳӳӬӳӬӻӴӻӱӼӻӴӻӴ
 
 ```
 
