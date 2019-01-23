@@ -68,3 +68,5 @@ class Fipamo {
     	return decodeURIComponent(str);
     }
 }
+
+module.exports = Fipamo;
