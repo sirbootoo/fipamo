@@ -16,7 +16,7 @@ npm install fipamo
 or 
 
 ```js
-npm install Fipamo --save
+npm install fipamo --save
 ```
 to save to your package.json.
 
@@ -26,12 +26,12 @@ to save to your package.json.
 ### In Vanilla Javascript
 
 ```js
-require('Fipamo')(key, arrKey)
+require('fipamo')(key, arrKey)
 ```
 
 
 ```js
-const fipamo = require('Fipamo');
+const fipamo = require('fipamo');
 const fip = fipamo('jsjss', ['a', 'A', 'zz']);
 
 document.write(fip.crypt('llslsdkdncdkdk'));
