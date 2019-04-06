@@ -55,8 +55,12 @@ class Fipamo {
         	enc = code;
     	}else{
     		enc = this.encode(string, key, convertedToStringOfNumbers)
-    	}
-    	return JSON.parse(enc);
+		}
+		try{
+			return JSON.parse(enc);
+		} catch(err){
+			return enc;
+		}
 	}
     
     // This function encodes the generated token which is returned by encodingFunc so that it can be sent over HTTP requests.
