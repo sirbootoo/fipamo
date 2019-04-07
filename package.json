@@ -1,6 +1,6 @@
 {
   "name": "fipamo",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "This is an encryption library written in Javascript",
   "main": "index.js",
   "scripts": {

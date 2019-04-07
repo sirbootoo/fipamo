@@ -38,7 +38,11 @@ class Fipamo {
     
     // This function passes the string into the encode method and loops through the arrkeys property. It does both the encrypting and decrypting.
     crypt(string, key=this.key, arrKeys=this.arrkeys) {
-		string = JSON.stringify(string);
+		if (typeof string === "string") {
+			string = string
+		} else {
+			string = JSON.stringify(string);
+		}
 		let enc = '';
     	let code;
 		let convertedToStringOfNumbers = this.convertLetterToNumber(arrKeys.toString().replace(/,/g, ''));
