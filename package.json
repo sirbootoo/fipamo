@@ -1,7 +1,7 @@
 {
   "name": "fipamo",
-  "version": "2.0.1",
-  "description": "This is an encryption library written in Javascript",
+  "version": "2.1.0",
+  "description": "This is an encryption library written in Javascript based off BitWise XOR algorithm",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -16,7 +16,10 @@
     "node",
     "crypt",
     "compress",
-    "decompress"
+    "decompress",
+    "bitwise",
+    "xor",
+    "BitWise XOR"
   ],
   "author": "Sirbootoo",
   "license": "MIT",
@@ -25,6 +28,5 @@
     "jest": "^28.0.3"
   },
   "dependencies": {
-    "@fstnetwork/cppzst": "^2.0.8"
   }
 }

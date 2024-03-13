@@ -1,4 +1,3 @@
-const {compressSync, decompressSync} = require('@fstnetwork/cppzst');
 class Fipamo {
 	constructor(key, arrKeys) {
 		this.key = key;
@@ -78,36 +77,21 @@ class Fipamo {
 		return decodeURIComponent(str);
 	}
 
-	// This function is used to encrypt and compress.
-	compressCrypt(string, key = this.key, arrKeys = this.arrkeys) {
-		const a = this.en(string)
-		const l = this.crypt(a, key, arrKeys);
-		return l;
+	// Encryption with Compression
+	encrypt(str, key = this.key, arrKeys = this.arrkeys) {
+		const compressedString = this.en(str);
+		return this.crypt(compressedString, key, arrKeys)
 	}
 
-	//
-	decompressCrypt(string, key = this.key, arrKeys = this.arrkeys) {
-		const l = this.crypt(string, key, arrKeys);
-		const d = this.de(l);
-		return d;
+	// Decrypt with Compressed encryption
+	decrypt(str, key = this.key, arrKeys = this.arrkeys) {
+		try{
+			const compressedString = this.crypt(str,  key, arrKeys);
+			return this.de(compressedString);
+		} catch(err) {
+			throw new Error('Cannot decrypt the string!')
+		}
 	}
-
-
-	compressAndEncrypt(string, key = this.key, arrKeys = this.arrkeys) {
-		const l = this.crypt(string, key, arrKeys);
-		const buf = Buffer.from(l);
-		var output = compressSync(buf);
-		return output;
-	}
-
-	decompressAndDecrypt(string, key = this.key, arrKeys = this.arrkeys) {
-		const ish = Buffer.from(string);
-		let decompressedString = decompressSync(ish);
-		decompressedString = decompressedString.toString();
-		const output = this.crypt(decompressedString, key, arrKeys);
-		return output;
-	}
-
 
 	// Compress the string
 	en(c) {
@@ -116,7 +100,7 @@ class Fipamo {
 	}
 
 	// Decompress the compress string
-	de(b){var a,e={},d=b.split(""),c=d[0], f=d[0],g=[c],h=256, o=256;for(b=1;b<d.length;b++)a=d[b].charCodeAt(0),a=h>a?d[b]:e[a]?e[a]:f+c,g.push(a),c=a.charAt(0),e[o]=f+c,o++,f=a;return g.join("")}
+	de(b) { var a, e = {}, d = b.split(""), c = d[0], f = d[0], g = [c], h = 256, o = 256; for (b = 1; b < d.length; b++)a = d[b].charCodeAt(0), a = h > a ? d[b] : e[a] ? e[a] : f + c, g.push(a), c = a.charAt(0), e[o] = f + c, o++, f = a; return g.join("") }
 
 }
 
